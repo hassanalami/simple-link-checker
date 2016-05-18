@@ -1,7 +1,10 @@
+<?php
+    header("Access-Control-Allow-Origin: *");  
+?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Link tester</title>
+	 <title>Link tester</title>
 
     <!-- Required meta tags always come first -->
     <meta charset="utf-8">
@@ -26,8 +29,17 @@
                 <button type="button" class="btn btn-default">Test me !</button>
             </div>
         </div>
+        <table class="table table-inverse small">
+            <thead>
+                <tr>
+                    <th class="col-md-2">Result</th>
+                    <th class="col-md-10">URL</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
-
     <script src="app.js"/></script>
 </body>
 </html>
