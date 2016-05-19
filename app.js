@@ -4,24 +4,25 @@ var secondcell = "";
 $('button').click(function() {
     var lines = $('textarea').val().split('\n');
     for (var i = 0; i < lines.length; i++) {
+        if (lines[i].match("^https://") || lines[i].match("^http://")) {
+            engine(lines[i]);
+        }
         console.log(lines[i]);
-        engine(lines[i]);
-
     }
 });
 
 function engine(urlstring) {
     $.ajax({
         type: 'HEAD',
-        url: urlstring,
+        url: "proxy.php?url=" + urlstring,
         timeout: 3000,
-        success: function() {
-           // alert("success");
-           firstcell = '<td class="col-md-2" style="color: green">success</td>';
-        },
-        error: function(xhr) {
-            firstcell = '<td class="col-md-2" style="color: red">fail</td>';
-            // alert("error");
+        statusCode: {
+            200: function() {
+                firstcell = '<td class="col-md-2" style="color: green">success</td>';
+            },
+            500:function(){
+                firstcell = '<td class="col-md-2" style="color: red">fail</td>';
+            }
         },
         complete: function() {
             secondcell = '<td class="col-md-10">' + urlstring + '</td>';
