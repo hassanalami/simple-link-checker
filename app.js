@@ -1,27 +1,27 @@
-var firstcell = "";
-var secondcell = "";
-
-$('button').click(function() {
+$('#test').click(function() {
     var lines = $('textarea').val().split('\n');
+    $('.progress').attr('max', "" + lines.length);
     for (var i = 0; i < lines.length; i++) {
         if (lines[i].match("^https://") || lines[i].match("^http://")) {
             engine(lines[i]);
         }
-        console.log(lines[i]);
+        $('.progress').attr('value', i + 1);
     }
 });
 
 function engine(urlstring) {
+    var firstcell = '<td class="col-md-2" style="color: red">fail</td>';
+    var secondcell = "";
     $.ajax({
         type: 'HEAD',
         url: "proxy.php?url=" + urlstring,
         timeout: 3000,
         statusCode: {
             200: function() {
-                firstcell = '<td class="col-md-2" style="color: green">success</td>';
+                firstcell = '<td class="col-md-2 text-success">success</td>';
             },
             500:function(){
-                firstcell = '<td class="col-md-2" style="color: red">fail</td>';
+                firstcell = '<td class="col-md-2 text-danger">fail</td>';
             }
         },
         complete: function() {
@@ -30,3 +30,8 @@ function engine(urlstring) {
         }
     });
 }
+
+$('#clear').click(function() {
+    $('tbody').html('');
+    $('textarea').val('');
+});
