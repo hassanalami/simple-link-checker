@@ -1,0 +1,14 @@
+{
+  "name": "jquery-numberedtextarea",
+  "homepage": "https://github.com/Dorious/jquery-numberedtextarea",
+  "_release": "513e629cd6",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "513e629cd6ebdac6b17b1218e2feccac810ad441"
+  },
+  "_source": "git://github.com/Dorious/jquery-numberedtextarea.git",
+  "_target": "*",
+  "_originalSource": "Dorious/jquery-numberedtextarea",
+  "_direct": true
+}

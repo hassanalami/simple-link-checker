@@ -1,11 +1,17 @@
+$('textarea').numberedtextarea();
+
 $('#test').click(function() {
     var lines = $('textarea').val().split('\n');
-    $('.progress').attr('max', "" + lines.length);
+    $('.progress').attr('max', lines.length);
+    $('.progress').attr('value', 0);
     for (var i = 0; i < lines.length; i++) {
         if (lines[i].match("^https://") || lines[i].match("^http://")) {
             engine(lines[i]);
         }
-        $('.progress').attr('value', i + 1);
+        else {
+            console.log( $('.progress').attr('value') + " => " + (parseInt($('.progress').attr('value')) + 1) + " | " + lines[i] );
+            $('.progress').attr('value', parseInt($('.progress').attr('value')) + 1);
+        }
     }
 });
 
@@ -27,6 +33,8 @@ function engine(urlstring) {
         complete: function() {
             secondcell = '<td class="col-md-10">' + urlstring + '</td>';
             $('tbody').append('<tr>' + firstcell + secondcell +'</tr>');
+            console.log( $('.progress').attr('value') + " => " + (parseInt($('.progress').attr('value')) + 1) + " | " + urlstring );
+            $('.progress').attr('value', parseInt($('.progress').attr('value')) + 1);
         }
     });
 }
@@ -34,4 +42,8 @@ function engine(urlstring) {
 $('#clear').click(function() {
     $('tbody').html('');
     $('textarea').val('');
+});
+
+$('textarea').on('focus', function() {
+    $('.progress').attr('value', 0);
 });

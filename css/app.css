@@ -1,0 +1,20 @@
+body {
+	padding-top: 2rem;
+	padding-bottom: 1rem;
+}
+
+.row {
+	margin-bottom: 1rem;
+}
+
+.numberedtextarea-wrapper{
+	font-family: monospace;
+}
+.numberedtextarea-wrapper textarea, .numberedtextarea-wrapper div{
+	font-size: 0.8rem;
+	color: #eceeef;
+}
+
+.progress {
+	height: 0.5rem;
+}
