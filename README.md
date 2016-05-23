@@ -23,3 +23,9 @@ If you want to update js libraries used in the project download and install [bow
 ```
 bower update
 ```
+
+##Credits
+- [Bootstrap 4](https://github.com/twbs/bootstrap/tree/v4-dev)
+- [jQuery JavaScript Library](https://github.com/jquery/jquery)
+- [HubSpot/tether](https://github.com/HubSpot/tether)
+- [Dorious/jquery-numberedtextarea](https://github.com/Dorious/jquery-numberedtextarea)
