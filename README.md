@@ -7,6 +7,16 @@ This webapp could be perfect for testing links in an m3u8 file.
 
 The web works does _asynchronous_ tests, this means that you can see a progress and that the app while not freeze while testing links.
 
+##Requirements
+- Apache, Lighttpd, or Nginx web server.
+- PHP 4 >= 4.0.2, PHP 5, or PHP 7.
+
+##Browser Requirements
+Supports the latest, stable releases of all major browsers and platforms, make to :
+- Have JavaScript enabled
+- Support for XMLHttpRequest
+- Support CSS2
+
 ##After downloading
 ###bower
 If you want to update js libraries used in the project download and install [bower](http://bower.io/), then update the project using the command:
